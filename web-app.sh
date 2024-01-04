@@ -1,8 +1,11 @@
 #!/bin/bash
 
 
+rmdir tempdir
 mkdir tempdir
+rmdir tempdir/templates
 mkdir tempdir/templates
+rmdir tempdir/static
 mkdir tempdir/static
 
 cp sample_app.py tempdir/.
@@ -18,7 +21,10 @@ echo "COPY sample_app.py /home/myapp/" >> tempdir/Dockerfile
 
 echo "EXPOSE 5000" >> tempdir/Dockerfile
 echo "CMD python /home/myapp/sample_app.py" >> tempdir/Dockerfile
+
 cd tempdir
-sudo docker build -t sampleapp .
-sudo docker run -t -d -p 5000:5000 --name samplerunning sampleapp
-sudo docker ps -a
+
+docker build -t sampleapp .
+
+docker run -t -d -p 5000:5000 --name samplerunning sampleapp
+docker ps -a
