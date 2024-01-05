@@ -1,12 +1,12 @@
 #!/bin/bash
 
 
-rmdir tempdir
-mkdir tempdir
-rmdir tempdir/templates
-mkdir tempdir/templates
-rmdir tempdir/static
-mkdir tempdir/static
+
+
+
+
+
+
 
 cp sample_app.py tempdir/.
 cp -r templates/* tempdir/templates/.
